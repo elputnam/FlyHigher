@@ -13,7 +13,6 @@ let shadows = [];
 
 let alp1 = 0;
 let alp2 = 0;
-let place;
 
 // Tiles configuration
 let tiles = [];
@@ -43,7 +42,6 @@ function setup() {
   frameRate(10);
   rectMode(CENTER);
   // Array of shadows
-  place = random(width*.75)
   for (let k = 1; k < sil.length; k++){
     let images = new Shadow(random(width*.3), random(5,50), random(360), sil[k]);
     shadows.push(images);
