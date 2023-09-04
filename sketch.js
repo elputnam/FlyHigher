@@ -39,7 +39,7 @@ function setup() {
   createCanvas(base.width, base.height);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
-  frameRate(7);
+  frameRate(5);
   rectMode(CENTER);
   // Array of shadows
   for (let k = 1; k < sil.length; k++){
