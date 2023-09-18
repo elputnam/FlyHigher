@@ -23,6 +23,14 @@ let w, h;
 // Order of tiles
 let board = [];
 
+//CCapture
+// var capture = false; // default is to not capture frames, can be changed with button in browser
+var capturer = new CCapture({
+  format:'webm', 
+  workersPath: 'js/',
+  framerate: 5
+});
+
 function preload(){
   base =loadImage('assets/FlyHigher_base.png');
   wings1 = loadImage('assets/FlyHigher_wings1.png');
@@ -65,6 +73,7 @@ function setup() {
 }
 
 function draw() {
+  if (frameCount==1) capturer.start();
   background(random(360), 100, 100);
 
   //base
@@ -146,6 +155,12 @@ for (let j = 0; j < shadows.length; j++){
         alp2 = 0;
       }
     }
+
+    capturer.capture(document.getElementById('defaultCanvas0'));  
+    if (frameCount==1500){
+      save_record();
+    }
+    print(frameCount);
 }
 
 class Tile {
@@ -179,4 +194,8 @@ class Shadow{
       this.colour = random(360);
     }
   }
+}
+
+function save_record() {
+  capturer.save();
 }
